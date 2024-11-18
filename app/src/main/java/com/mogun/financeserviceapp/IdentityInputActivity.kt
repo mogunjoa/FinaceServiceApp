@@ -1,5 +1,6 @@
 package com.mogun.financeserviceapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
@@ -108,6 +109,8 @@ class IdentityInputActivity : AppCompatActivity() {
             binding.phoneLayout.error = "휴대폰 번호 형식이 다릅니다."
             return
         }
+
+        startActivity(Intent(this, VerifyOtpActivity::class.java))
     }
 
     private fun validName() = !binding.nameEditText.text.isNullOrBlank() && REGEX_NAME.toRegex()
