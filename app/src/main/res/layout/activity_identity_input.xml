@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingHorizontal="48dp"
+                    android:onClick="@{() -> view.onClickDone()}"
                     android:text="입력 완료"
                     android:visibility="gone"
                     tools:visibility="visible" />
@@ -61,7 +62,7 @@
                     tools:visibility="visible">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/phoneEdit"
+                        android:id="@+id/phoneEditText"
                         style="@style/Widget.App.TextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -145,7 +146,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="통신사"
+                        android:text="성별"
                         android:textSize="12sp" />
 
                     <com.google.android.material.chip.ChipGroup
