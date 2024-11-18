@@ -52,4 +52,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.activity.ktx)
+
+    // SMS Retriever
+    implementation(libs.play.services.auth.api.phone)
 }
