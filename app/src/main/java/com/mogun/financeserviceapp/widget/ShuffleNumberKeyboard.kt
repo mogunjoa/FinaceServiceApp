@@ -23,8 +23,10 @@ class ShuffleNumberKeyboard @JvmOverloads constructor(
     init {
         _binding =
             WidgetShuffleNumberKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
-        binding.view = this
-        binding.clickListener = this
+        binding.apply {
+            view = this@ShuffleNumberKeyboard
+            clickListener = this@ShuffleNumberKeyboard
+        }
         shuffle()
     }
 
@@ -41,12 +43,14 @@ class ShuffleNumberKeyboard @JvmOverloads constructor(
         }
 
         binding.gridLayout.children.forEach { view ->
-            if(view is TextView && view.tag != null) {
-                val randomIndex = Random.nextInt(keyNumberArray.size)
-                view.text = keyNumberArray[randomIndex]
-                keyNumberArray.removeAt(randomIndex)
+            if (view is TextView && view.tag != null) {
+                val randIndex = Random.nextInt(keyNumberArray.size)
+                view.text = keyNumberArray[randIndex]
+                keyNumberArray.removeAt(randIndex)
             }
         }
+
+        println(binding.gridLayout.children)
     }
 
     fun setKeyPadListener(listener: KeyPadListener) {
